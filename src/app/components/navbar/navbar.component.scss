@@ -1,0 +1,35 @@
+@import '../../../styles.scss';
+
+nav {
+  height: 100%;
+  background-color: $primaryColor;
+  color: $secondaryColor;
+  display: flex;
+  align-items: center;
+  @include padding-x(15px);
+  h2 {
+    margin: 0;
+    display: inline-block;
+  }
+  ul {
+    margin:  5px 0px 0px 20px;
+    display: inline-block;
+    list-style: none;
+    @include padding-x(10px);
+    li {
+      display: inline;
+      padding: 5px;
+    }
+  }
+}
+
+a {
+  color: $secondaryColor;
+  text-decoration: none;
+}
+
+.right {
+  margin-left: auto;
+}
+
+

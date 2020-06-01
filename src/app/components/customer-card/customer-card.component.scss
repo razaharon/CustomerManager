@@ -1,0 +1,44 @@
+@import '../../../styles.scss';
+
+#avatar {
+  height: 80px;
+  width: 80px;
+}
+
+#edit {
+  height: 20px;
+  cursor: pointer;
+  float: right;
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    margin: auto;
+  }
+}
+
+.container {
+  display: inline-block;
+  border: 1px solid black;
+  width: 250px;
+  margin: 10px;
+  padding-bottom: 30px;
+}
+
+#address {
+  margin: 5px;
+  font-weight: normal;
+  position: absolute;
+}
+
+.title {
+  background-color: $primaryColor;
+  color: $secondaryColor;
+  padding: 10px;
+}
+
+h3 {
+  margin: 0;
+  display: inline-block;
+  font-size: medium;
+}

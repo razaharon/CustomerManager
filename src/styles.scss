@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+$primaryColor: blue;
+$secondaryColor: white;
+$lightGray: #ddd;
+$greenColor: #4CAF50;
+
+@mixin padding-x($n) {
+  padding-left: $n;
+  padding-right: $n;
+}
+
+@mixin margin-x($n) {
+  margin-left: $n;
+  margin-right: $n;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+.success-button{
+  margin-top: 17px;
+  width: 33%;
+  background-color: $greenColor;
+  border: none;
+  color: white;
+  padding: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: medium;
+  border-radius: 7px;
+  cursor: pointer;
+  &:disabled {
+    color:$lightGray;
+  }
+}

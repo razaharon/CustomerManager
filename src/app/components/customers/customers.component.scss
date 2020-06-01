@@ -1,0 +1,80 @@
+@import '../../../styles.scss';
+
+.container {
+  padding: 15px;
+}
+#layoutButtons {
+  display: flex;
+  margin: 5px;
+  button,
+  input {
+    font-size: medium;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+  button {
+    border: 1px solid $lightGray;
+    margin: 5px;
+    padding: 5px;
+  }
+}
+#noCustomersMessage{
+  text-align: center;
+}
+#customersTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin-top: 20px;
+  td,
+  th {
+    border: 1px solid $lightGray;
+    padding: 10px;
+  }
+  tr {
+    &:hover {
+      #edit {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+#avatar {
+  height: 100px;
+  width: 100px;
+}
+.view-button {
+  display: none;
+}
+.customers-container {
+  margin-left: 85px;
+}
+@media only screen and (min-width: 1024px) {
+  .view-button {
+    display: block;
+  }
+  .customers-container {
+    margin-left: 25px;
+  }
+}
+@media only screen and (min-width: 425px) {
+  .customers-container{
+    margin-left: 55px;
+  }
+}
+@media only screen and (max-width: 424px) {
+  .customers-container{
+    margin-left: 45px;
+  }
+}
+
+#edit {
+  height: 20px;
+  cursor: pointer;
+  visibility: hidden;
+  float: right;
+  filter: invert(1);
+}

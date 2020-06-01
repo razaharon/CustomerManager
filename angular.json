@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "LevelAppAngular": {
+    "CustomerManager": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/LevelAppAngular",
+            "outputPath": "dist/CustomerManager",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "LevelAppAngular:build"
+            "browserTarget": "CustomerManager:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "LevelAppAngular:build:production"
+              "browserTarget": "CustomerManager:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "LevelAppAngular:build"
+            "browserTarget": "CustomerManager:build"
           }
         },
         "test": {
@@ -114,15 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "LevelAppAngular:serve"
+            "devServerTarget": "CustomerManager:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "LevelAppAngular:serve:production"
+              "devServerTarget": "CustomerManager:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "LevelAppAngular"
+  "defaultProject": "CustomerManager"
 }

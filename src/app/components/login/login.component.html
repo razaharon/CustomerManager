@@ -1,0 +1,29 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" autocomplete="off">
+  <div class="container">
+    <h3>Login</h3>
+    <div class="inputContainer">
+      <label for="email">Email: </label>
+      <input formControlName="email" type="email" name="email">
+    </div>
+    <div *ngIf="!controls.email.untouched && controls.email.errors?.required" class="error-text">
+      <i>this field is required</i>
+    </div>
+    <div *ngIf="!controls.email.untouched && controls.email.errors?.email" class="error-text">
+      <i>valid email is required</i>
+    </div>
+    <div class="inputContainer">
+      <label for="password">Password: </label>
+      <input formControlName="password" type="password" name="password" autocomplete="off">
+    </div>
+    <div *ngIf="!controls.password.untouched && controls.password.errors?.required" class="error-text">
+      <i>this field is required</i>
+    </div>
+    <div *ngIf="!controls.password.untouched && controls.password.errors?.pattern" class="error-text">
+      <i>password must contain only letters with at least one capital letter</i>
+    </div>
+    <div *ngIf="!controls.password.untouched && controls.password.errors?.minlength" class="error-text">
+      <i>password must be at least 8 characters long</i>
+    </div>
+    <button class="success-button" [disabled]="loginForm.invalid" type="submit">Login</button>
+  </div>
+</form>

@@ -1,0 +1,9 @@
+<nav>
+  <h2>Customer Manager</h2>
+  <ul>
+    <li><a routerLink="customers">Customers</a></li>
+    <li><a routerLink="about">About</a></li>
+  </ul>
+  <a *ngIf="user" class="right" (click)="logout()" routerLink="login">Logout</a>
+  <a *ngIf="!user" class="right" routerLink="login">Login</a>
+</nav>

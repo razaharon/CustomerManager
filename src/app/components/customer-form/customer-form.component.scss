@@ -1,0 +1,55 @@
+@import '../../../styles.scss';
+
+.container {
+  text-align: center;
+}
+
+h2 {
+  font-size: x-large;
+}
+
+#submitButton{
+  @extend .success-button;
+  width: 100%;
+}
+
+#deleteButton{
+  @extend #submitButton;
+  background-color: red;
+}
+
+#formSection {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-size: large;
+}
+
+input[type='radio']{
+  cursor: pointer;
+}
+
+input[type='text']{
+  display: block;
+  width: 100%;
+}
+
+#genderTitle {
+  display: block;
+}
+
+.input-group {
+  text-align: left;
+  width: 100%;
+  input {
+    margin-top: 5px;
+    font-size: large;
+
+  }
+  margin-top: 10px;
+}
+
+.radio-group {
+  display: inline;
+  margin-right: 10px;
+}

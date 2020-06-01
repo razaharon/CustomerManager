@@ -1,0 +1,6 @@
+<div #modal id="modal" class="modal">
+  <div class="modal-content">
+    <span (click)="closeModal()" class="close">&times;</span>
+    <app-customer-form (closeModal)="closeModal()"></app-customer-form>
+  </div>
+</div>

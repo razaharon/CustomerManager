@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Customers</h2>
+
+  <div id="layoutButtons">
+    <button (click)="setCardView()" class="view-button">Card View</button>
+    <button (click)="setTableView()" class="view-button">List View</button>
+    <button (click)="newCustomer()">New Customer</button>
+    <input #searchInput (keyup)="onSearch(searchInput.value)" type="text" name="search" placeholder="Search Customer">
+  </div>
+  <div class="customers-container">
+    <div *ngIf="filteredCustomers?.length==0" id="noCustomersMessage">
+      <i>No costumers to display</i>
+    </div>
+    <!-- Card View -->
+    <div *ngIf="cardView" id="cardView">
+      <app-customer-card *ngFor="let customer of filteredCustomers" [customer]="customer"></app-customer-card>
+    </div>
+    <!-- Table View -->
+    <div *ngIf="!cardView" id="tableView">
+      <table *ngIf="filteredCustomers?.length" id="customersTable">
+        <thead>
+          <tr>
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>City</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of filteredCustomers">
+            <td>
+              <img id="avatar" src="{{ customer.gender === 'male' ? maleImage : femaleImage }}">
+            </td>
+            <td>{{ customer.firstName | titlecase }}</td>
+            <td>{{ customer.lastName | titlecase }}</td>
+            <td>{{ customer.city | titlecase }}</td>
+            <td>
+              {{ customer.country | titlecase }}
+              <img (click)="openModal()" id="edit" src="../../../assets/pictures/icons/edit-icon.png" alt="">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<app-customer-modal></app-customer-modal>

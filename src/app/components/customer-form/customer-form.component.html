@@ -1,0 +1,38 @@
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm)" autocomplete="off">
+  <div class="container">
+    <h2>{{ formType }} Customer</h2>
+    <div id="formSection">
+      <div class="input-group">
+        <label for="firstName">First Name:</label>
+        <input formControlName="firstName" type="text" name="firstName">
+      </div>
+      <div class="input-group">
+        <label for="lastName">Last Name:</label>
+        <input formControlName="lastName" type="text" name="lastName">
+      </div>
+      <div class="input-group">
+        <label for="city">City:</label>
+        <input formControlName="city" type="text" name="city">
+      </div>
+      <div class="input-group">
+        <label for="country">Country:</label>
+        <input formControlName="country" type="text" name="country">
+      </div>
+      <div class="input-group">
+        <label id="genderTitle" for="gender">Gender:</label>
+        <div class="radio-group">
+          <input formControlName="gender" value="male" type="radio" name="gender">
+          <label for="male">Male</label>
+        </div>
+        <div class="radio-group">
+          <input formControlName="gender" value="female" type="radio" name="gender">
+          <label for="male">Female</label>
+        </div>
+      </div>
+      <div class="form-buttons">
+        <button id="submitButton" type="submit" [disabled]="customerForm.invalid">{{ formType }} Customer</button>
+        <button id="deleteButton" *ngIf="formType==='Update'" type="button" (click)="deleteCustomer()">Delete Customer</button>
+      </div>
+    </div>
+  </div>
+</form>

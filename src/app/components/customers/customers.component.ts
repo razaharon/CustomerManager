@@ -1,0 +1,57 @@
+import { Component, OnInit } from '@angular/core';
+import { Customer } from 'src/app/interfaces/customer';
+import { ModalService } from 'src/app/services/modal.service';
+import { CustomersService } from 'src/app/services/customers.service';
+
+@Component({
+  selector: 'app-customers',
+  templateUrl: './customers.component.html',
+  styleUrls: ['./customers.component.scss']
+})
+export class CustomersComponent implements OnInit {
+
+  public customers: Customer[];
+  public filteredCustomers: Customer[];
+
+  public cardView: boolean = true;
+
+  public maleImage = '../../../assets/pictures/avatars/male.png';
+  public femaleImage = '../../../assets/pictures/avatars/female.png';
+
+  constructor(
+    private _modal: ModalService,
+    private _customers: CustomersService
+  ) { }
+
+  ngOnInit(): void {
+    this._customers.customersState.subscribe(customers =>
+      this.filteredCustomers = this.customers = customers);
+  }
+
+  public onSearch(search: string): void {
+    if (search) {
+      this.filteredCustomers = this.customers
+        .filter(customer =>
+          `${customer.firstName} ${customer.lastName}`.toLowerCase().includes(search.toLowerCase()))
+    }
+    else {
+      this.filteredCustomers = this.customers;
+    }
+  }
+
+  public newCustomer(): void {
+    this._modal.openModal();
+  }
+
+  public setTableView() {
+    this.cardView = false;
+  }
+
+  public setCardView() {
+    this.cardView = true;
+  }
+
+  public openModal() {
+    this._modal.openModal();
+  }
+}
