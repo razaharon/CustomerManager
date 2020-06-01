@@ -41,7 +41,13 @@
     }
   }
 }
-
+#edit {
+  height: 20px;
+  cursor: pointer;
+  visibility: hidden;
+  float: right;
+  filter: invert(1);
+}
 #avatar {
   height: 100px;
   width: 100px;
@@ -71,10 +77,4 @@
   }
 }
 
-#edit {
-  height: 20px;
-  cursor: pointer;
-  visibility: hidden;
-  float: right;
-  filter: invert(1);
-}
+

@@ -23,7 +23,7 @@ export class CustomersComponent implements OnInit {
     private _customers: CustomersService
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this._customers.customersState.subscribe(customers =>
       this.filteredCustomers = this.customers = customers);
   }
@@ -43,15 +43,15 @@ export class CustomersComponent implements OnInit {
     this._modal.openModal();
   }
 
-  public setTableView() {
+  public setTableView(): void {
     this.cardView = false;
   }
 
-  public setCardView() {
+  public setCardView(): void {
     this.cardView = true;
   }
 
-  public openModal() {
+  public openModal(): void {
     this._modal.openModal();
   }
 }

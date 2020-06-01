@@ -9,18 +9,18 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  user: string = null;
+  public user: string = null;
 
   constructor(
     private _user: UserService,
     private _router: Router
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this._user.userState.subscribe(user => this.user = user);
   }
 
-  logout(): void {
+  public logout(): void {
     this._user.logout();
     this._router.navigate(['login']);
   }

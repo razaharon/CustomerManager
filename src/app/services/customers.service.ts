@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CustomersService {
 
-  public customersState: BehaviorSubject<Customer[]> = new BehaviorSubject([]);
+  private _customersState: BehaviorSubject<Customer[]> = new BehaviorSubject([]);
+  public get customersState() { return this._customersState }
 
   constructor() {
     let customers = this.getLocalStorage();
@@ -37,7 +38,7 @@ export class CustomersService {
 
   public addCustomer(customer: Customer): void {
     let customers = this.customersState.getValue();
-    customer.id = customers.length ? customers.length + 1 : 1;
+    customer.id = customers.length > 0 ? customers[customers.length - 1].id + 1 : 1;
     customers.push(customer);
     this.setLocalStorage(customers);
     this.customersState.next(customers);
@@ -45,7 +46,7 @@ export class CustomersService {
 
   public deleteCustomer(customerId: number): void {
     let customers = this.customersState.getValue();
-    customers = customers.filter(customer => customer.id!==customerId);
+    customers = customers.filter(customer => customer.id !== customerId);
     this.setLocalStorage(customers);
     this.customersState.next(customers);
   }

@@ -25,24 +25,32 @@ export class CustomerFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._modal.modalEmitter.subscribe(customer => {
-      if (customer) {
-        this.customer = customer
-        this.formType = 'Update';
-      } else {
-        this.formType = 'Add';
-        this.customer = this._customers.generateEmptyCustomer();
-      }
-      this.updateFormData();
-    });
+    this.subscribeToModalService();
+    this.buildForm();
+  }
 
+  private buildForm(): void {
     this.customerForm = this._formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
       gender: ['', Validators.required]
-    })
+    });
+  }
+
+  private subscribeToModalService(): void {
+    this._modal.modalEmitter.subscribe(customer => {
+      if (customer) {
+        this.customer = customer;
+        this.formType = 'Update';
+      }
+      else {
+        this.formType = 'Add';
+        this.customer = this._customers.generateEmptyCustomer();
+      }
+      this.updateFormData();
+    });
   }
 
   public get controls() { return this.customerForm.controls }

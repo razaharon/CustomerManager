@@ -10,7 +10,7 @@ import { CustomersService } from 'src/app/services/customers.service';
 })
 export class CustomerCardComponent {
 
-  @Input('customer') public customer: Customer;
+  @Input() public customer: Customer;
 
   public maleImage = '../../../assets/pictures/avatars/male.png';
   public femaleImage = '../../../assets/pictures/avatars/female.png';

@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     private _router: Router
   ) { }
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  public canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let user = this._user.userState.getValue();
 
     if (state.url === '/customers') {
