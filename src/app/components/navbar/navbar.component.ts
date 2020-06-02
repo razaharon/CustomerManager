@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 export class NavbarComponent implements OnInit, OnDestroy {
 
   public user: string = null;
-  public userSubscription: Subscription;
+  private userSubscription: Subscription;
 
   constructor(
     private _user: UserService,

@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 export class UserService {
 
   // User state Observable manages user state
-  public userState = new BehaviorSubject<string>(null);
+  private _userState = new BehaviorSubject<string>(null);
+  public get userState() { return this._userState }
   // ReExp accepts letters string with at least 1 capital letter
   public readonly passwordValidator = new RegExp(/^[a-zA-Z]*[A-Z]+[a-zA-Z]*$/);
 

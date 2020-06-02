@@ -17,7 +17,7 @@ export class CustomerFormComponent implements OnInit, OnDestroy {
   public formType: string; // Add / Update
 
   private modalSubscription: Subscription;
-  @Output() closeModal: EventEmitter<void> = new EventEmitter<void>();
+  @Output() public closeModal: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
     private _modal: ModalService,
@@ -27,12 +27,12 @@ export class CustomerFormComponent implements OnInit, OnDestroy {
     this.customer = this._customers.generateEmptyCustomer();
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.subscribeToModalService();
     this.buildForm();
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.modalSubscription.unsubscribe();
   }
 

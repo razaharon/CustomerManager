@@ -11,9 +11,9 @@ import { Subscription } from 'rxjs';
 })
 export class CustomersComponent implements OnInit, OnDestroy {
 
-  public customers: Customer[];
+  private customersSubscription: Subscription;
+  private customers: Customer[];
   public filteredCustomers: Customer[];
-  public customersSubscription: Subscription;
 
   public cardView: boolean = true;
 

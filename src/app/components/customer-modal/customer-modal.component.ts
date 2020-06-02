@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 export class CustomerPopUpComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('modal') public modal: ElementRef;
-  public modalSubscription: Subscription;
+  private modalSubscription: Subscription;
 
   constructor(private _modal: ModalService) { }
 
