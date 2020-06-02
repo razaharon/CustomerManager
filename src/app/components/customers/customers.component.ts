@@ -57,7 +57,7 @@ export class CustomersComponent implements OnInit, OnDestroy {
     this.cardView = true;
   }
 
-  public openModal(): void {
-    this._modal.openModal();
+  public openModal(customer?: Customer): void {
+    this._modal.openModal(customer);
   }
 }

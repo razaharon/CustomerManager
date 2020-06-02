@@ -37,7 +37,7 @@
             <td>{{ customer.city | titlecase }}</td>
             <td>
               {{ customer.country | titlecase }}
-              <img (click)="openModal()" id="edit" src="../../../assets/pictures/icons/edit-icon.png" alt="">
+              <img (click)="openModal(customer)" id="edit" src="../../../assets/pictures/icons/edit-icon.png" alt="">
             </td>
           </tr>
         </tbody>
