@@ -1,19 +1,22 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
 import { Customer } from 'src/app/interfaces/customer';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomersService } from 'src/app/services/customers.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customer-form',
   templateUrl: './customer-form.component.html',
   styleUrls: ['./customer-form.component.scss']
 })
-export class CustomerFormComponent implements OnInit {
+export class CustomerFormComponent implements OnInit, OnDestroy {
 
   public customer: Customer;
   public customerForm: FormGroup;
   public formType: string; // Add / Update
+
+  private modalSubscription: Subscription;
   @Output() closeModal: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
@@ -29,6 +32,10 @@ export class CustomerFormComponent implements OnInit {
     this.buildForm();
   }
 
+  ngOnDestroy(): void {
+    this.modalSubscription.unsubscribe();
+  }
+
   private buildForm(): void {
     this.customerForm = this._formBuilder.group({
       firstName: ['', Validators.required],
@@ -40,7 +47,7 @@ export class CustomerFormComponent implements OnInit {
   }
 
   private subscribeToModalService(): void {
-    this._modal.modalEmitter.subscribe(customer => {
+    this.modalSubscription = this._modal.modalEmitter.subscribe(customer => {
       if (customer) {
         this.customer = customer;
         this.formType = 'Update';

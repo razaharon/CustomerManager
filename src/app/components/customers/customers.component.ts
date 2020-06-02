@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Customer } from 'src/app/interfaces/customer';
 import { ModalService } from 'src/app/services/modal.service';
 import { CustomersService } from 'src/app/services/customers.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.scss']
 })
-export class CustomersComponent implements OnInit {
+export class CustomersComponent implements OnInit, OnDestroy {
 
   public customers: Customer[];
   public filteredCustomers: Customer[];
+  public customersSubscription: Subscription;
 
   public cardView: boolean = true;
 
@@ -24,8 +26,12 @@ export class CustomersComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this._customers.customersState.subscribe(customers =>
+    this.customersSubscription = this._customers.customersState.subscribe(customers =>
       this.filteredCustomers = this.customers = customers);
+  }
+
+  public ngOnDestroy(): void {
+    this.customersSubscription.unsubscribe();
   }
 
   public onSearch(search: string): void {
