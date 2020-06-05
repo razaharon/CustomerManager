@@ -30,14 +30,14 @@
         <tbody>
           <tr *ngFor="let customer of filteredCustomers">
             <td>
-              <img id="avatar" src="{{ customer.gender === 'male' ? maleImage : femaleImage }}">
+              <img class="avatar" src="{{ customer.gender === 'male' ? maleImage : femaleImage }}">
             </td>
             <td>{{ customer.firstName | titlecase }}</td>
             <td>{{ customer.lastName | titlecase }}</td>
             <td>{{ customer.city | titlecase }}</td>
             <td>
               {{ customer.country | titlecase }}
-              <img (click)="openModal(customer)" id="edit" src="../../../assets/pictures/icons/edit-icon.png" alt="">
+              <img (click)="openModal(customer)" class="edit" src="../../../assets/pictures/icons/edit-icon.png" alt="">
             </td>
           </tr>
         </tbody>

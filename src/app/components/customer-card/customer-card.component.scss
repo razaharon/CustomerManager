@@ -1,11 +1,11 @@
 @import '../../../styles.scss';
 
-#avatar {
+.avatar {
   height: 80px;
   width: 80px;
 }
 
-#edit {
+.edit {
   height: 20px;
   cursor: pointer;
   float: right;
@@ -19,7 +19,7 @@
   padding-bottom: 30px;
 }
 
-#address {
+.address {
   margin: 5px;
   font-weight: normal;
   position: absolute;

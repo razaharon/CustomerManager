@@ -1,8 +1,8 @@
 <div class="container">
   <div class="title">
     <h3>{{ customer.firstName | titlecase }} {{ customer.lastName | titlecase }}</h3>
-    <img id="edit" src="../../../assets/pictures/icons/edit-icon.png" (click)="updateCustomer()">
+    <img class="edit" src="../../../assets/pictures/icons/edit-icon.png" (click)="updateCustomer()">
   </div>
-  <img id="avatar" [src]="customer.gender === 'male' ? maleImage : femaleImage" alt="">
-  <h3 id="address">{{ customer.city | titlecase }}, {{ customer.country | titlecase }}</h3>
+  <img class="avatar" [src]="customer.gender === 'male' ? maleImage : femaleImage" alt="">
+  <h3 class="address">{{ customer.city | titlecase }}, {{ customer.country | titlecase }}</h3>
 </div>
