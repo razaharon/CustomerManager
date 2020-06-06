@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Customer } from 'src/app/interfaces/customer';
-import { ModalService } from 'src/app/services/modal.service';
-import { CustomersService } from 'src/app/services/customers.service';
+import { Customer } from 'src/app/customers/interfaces/customer';
+import { ModalService } from 'src/app/customers/services/modal.service';
+import { CustomersService } from 'src/app/customers/services/customers.service';
 import { Subscription } from 'rxjs';
 
 @Component({

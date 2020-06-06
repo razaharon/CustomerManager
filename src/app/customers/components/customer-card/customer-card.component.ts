@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { ModalService } from 'src/app/services/modal.service';
-import { Customer } from 'src/app/interfaces/customer';
-import { CustomersService } from 'src/app/services/customers.service';
+import { ModalService } from 'src/app/customers/services/modal.service';
+import { Customer } from 'src/app/customers/interfaces/customer';
+import { CustomersService } from 'src/app/customers/services/customers.service';
 
 @Component({
   selector: 'app-customer-card',

@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import '../../../../styles.scss';
 
 nav {
   height: 100%;
@@ -26,6 +26,7 @@ nav {
 a {
   color: $secondaryColor;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .right {
