@@ -10,14 +10,14 @@ import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     UserModule,
-    CustomersModule,
+    CustomersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
