@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import "../../../../styles.scss";
 
 .container {
   text-align: center;
@@ -8,12 +8,12 @@ h2 {
   font-size: x-large;
 }
 
-#submitButton{
+#submitButton {
   @extend .success-button;
   width: 100%;
 }
 
-#deleteButton{
+#deleteButton {
   @extend #submitButton;
   background-color: red;
 }
@@ -25,11 +25,11 @@ h2 {
   font-size: large;
 }
 
-input[type='radio']{
+input[type="radio"] {
   cursor: pointer;
 }
 
-input[type='text']{
+input[type="text"] {
   display: block;
   width: 100%;
 }
@@ -44,7 +44,6 @@ input[type='text']{
   input {
     margin-top: 5px;
     font-size: large;
-
   }
   margin-top: 10px;
 }
@@ -52,4 +51,14 @@ input[type='text']{
 .radio-group {
   display: inline;
   margin-right: 10px;
+}
+
+@media only screen and (min-width: 1024px) {
+  #submitButton,
+  .input-group,
+  #deleteButton {
+    width: 75%;
+    margin: auto;
+    @include margin-y(10px);
+  }
 }

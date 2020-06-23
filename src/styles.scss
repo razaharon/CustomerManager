@@ -13,6 +13,11 @@ $greenColor: #4CAF50;
   margin-right: $n;
 }
 
+@mixin margin-y($n) {
+  margin-top: $n;
+  margin-bottom: $n;
+}
+
 html, body {
   margin: 0;
   padding: 0;
